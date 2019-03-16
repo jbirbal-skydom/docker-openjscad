@@ -20,5 +20,11 @@ RUN npm install
 # prepare the bootstrap
 RUN npm run bootstrap
 
+# create a workspace directory
+RUN mkdir -p packages/web/examples/workspace
+
+# make the workspace volume available
+VOLUME /openjscad/packages/web/examples/workspace
+
 # run the server
 CMD npm run web

@@ -80,18 +80,19 @@ fi
 docker ps | grep $containername
 if [ $? -ne 0 ]
 then
+  wd=$(pwd)
   nohup docker run \
      --publish=8080:8080 \
+     --volume $wd/workspace:/openjscad/packages/web/examples/workspace \
      --name $containername \
      bitplan/openjscad:latest&
-  sleep 2
 fi
 #find out hostname
 hostname=$(hostname)
 
 url=http://$hostname:8080/
 # wait for url being available
-echo "waiting for $url being available "
+color_msg $blue "waiting for $url being available "
 until $(curl --output /dev/null --silent --head --fail $url); do
     printf '.'
     sleep 5
