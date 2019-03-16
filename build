@@ -1,0 +1,4 @@
+#!/bin/bash
+# WF 2019-03-16
+# build the docker file
+docker build . -t bitplan/openjscad:latest
