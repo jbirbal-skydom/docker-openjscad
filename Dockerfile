@@ -1,5 +1,11 @@
 # 2019-03-16
+# OpenJSCAD dockerized version
 FROM node:6
+
+# Expose port 8080
+EXPOSE 8080
+
+# see also http://www.bitplan.com
 MAINTAINER Wolfgang Fahl <wf@bitplan.com>
 
 # get the openjscad source
