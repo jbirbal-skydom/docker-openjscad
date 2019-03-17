@@ -1,10 +1,9 @@
 // title      : Box Test
 // author     : Wolfgang Fahl
-// license    : MIT License
+// license    : Apache License
 // revision   : 0.0.1
 // tags       : Cube
-// file       : box.jscad
-
+// file       : Box.jscad
 class Box {
   constructor(width, length, height, wall, center) {
     this.width = width;
@@ -12,9 +11,9 @@ class Box {
     this.height = height;
     this.wall = wall;
     this.center = center;
-    this.x=0;
-    this.y=0;
-    this.z=0;
+    this.x = 0;
+    this.y = 0;
+    this.z = 0;
   }
 
   /**
@@ -33,13 +32,19 @@ class Box {
     ).translate([this.x, this.y, this.z])
   }
 
-  at(x,y,z) {
-    this.x=x;
-    this.y=y;
-    this.z=z;
+  at(x, y, z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
   }
 
-  move(x,y,z) {
-    this.at(this.x+x,this.y+y,this.z+z);
+  move(x, y, z) {
+    this.at(this.x + x, this.y + y, this.z + z);
   }
+}
+
+BoxFactory=function () {
+   BoxFactory.create=function(pWidth, pLength, pHeight, pWall, pCenter) {
+     return new Box(pWidth,pLength,pHeight,pWall,pCenter);
+   }
 }
